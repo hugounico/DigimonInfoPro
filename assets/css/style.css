@@ -1,0 +1,44 @@
+.navbar-nav.d-flex {                /*alinear lenguajes a la derecha y centrados vertical*/
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: black;
+}
+.navbar-nav li:last-child {
+    margin-left: 0.5rem;
+}
+.navbar-nav li {
+    margin: 0 1rem;
+}
+.navbar-nav li a {
+    color: white;
+}                                   /*los 3 últimos codigos son para los margenes de español e ingles*/
+
+.navbar {                               /*ajustes al navbar*/
+    background-color: rgb(245, 136, 46);
+}
+.navbar-brand {
+    color: white;
+}
+
+#table-container {                                   /*ajustes a la tabla*/
+    max-height: 400px; /* o la altura máxima que quieras darle */
+    overflow: auto;
+}
+#myTable img {
+    width: 15%;
+    height: auto;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 1px;
+}
+  
+th {
+    background-color: #04AA6D;
+    color: white;
+}
