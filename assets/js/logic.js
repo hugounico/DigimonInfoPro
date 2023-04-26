@@ -6,7 +6,7 @@ $(document).ready(function() {                                  //cambia de colo
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {   //dispara la función luego de que el html se a caragdo correctamente
+/*document.addEventListener('DOMContentLoaded', function() { */  //dispara la función luego de que el html se a caragdo correctamente
     fetch("https://digimon-api.vercel.app/api/digimon")
         .then(response => response.json())
         .then(data => {                                   //data es donde se traera la informacion
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {   //dispara la funci�
             });
         })
     .catch(error => console.error('Error:', error));
-})
+/*})*/
 
 //document.getElementById('title').textContent = data.title; //lo verde es el id que esta en el html
 //document.getElementById('poster').src = data.poster;  //lo que esta despues del data. "poster" es el id a buscar en la api
