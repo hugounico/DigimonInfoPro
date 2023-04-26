@@ -11,14 +11,102 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js" integrity="sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=" crossorigin="anonymous"></script>
     
-    <link rel="icon" href=" ">
+    <link rel="icon" href="assets/img/gabumon2.png"> <!--icono en la pestaña-->
     <title>PortafolioHC</title>
 
   </head>
   <body>
- 
-    <h1>Pronto toda la información de digimon que necesitas saber.</h1>
+    <div class="navbar-overlay">                  <!--barra negra sobre el navbar-->
+      <div class="navbar-overlay-bar"></div>
+      <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="assets/img/banderachile1.png" alt="Español" width="20" height="20"> Español
+          </a>
+        </li>
+        <li class="nav-item mr-auto">
+          <a class="nav-link" href="#"><img src="assets/img/banderaru1.png" alt="Inglés" width="20" height="20"> Inglés
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg">  <!--navbar-->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="assets/img/gabumon2.png" width="80">Digimon Pro Info</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> <!--span es la forma del incono que se muestra-->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
+    <div class="container-fluid">
+    <div class="row">
+    <div class="container-form col-lg-3">
+    <div class="form-container">
+      <form>
+        <label for="email-input">Correo electrónico:</label>
+        <input type="email" id="email-input" name="email-input">
+        <button type="submit">Regístrate para recibir nuestras noticias</button>
+      </form>
+    </div>
+    <div class="form-container">
+      <form>
+        <label for="name-input">Nombre:</label>
+        <input type="text" id="name-input" name="name-input">
+        <label for="email-input2">Correo electrónico:</label>
+        <input type="email" id="email-input2" name="email-input2">
+        <label for="comments-input">Comentarios:</label>
+        <textarea id="comments-input" name="comments-input"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    </div>
+
+    <div class="container-table col-lg-9" id="table-container">
+    <table class="table-primary" id="myTable">
+      <thead>
+        <tr class="table-primary">
+          <th width="12%">#</th>
+          <th width="40%">Imagen</th>
+          <th width="24%">Nombre</th>
+          <th width="24%">Nivel</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+      </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+    <footer class="bg-dark text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="tu-imagen.jpg" alt="Logo">
+          </div>
+          <div class="col-md-8">
+            <h4>Contactanos</h4>
+            <p>Correo electrónico: info@tudominio.com</p>
+            <p>Número celular: 123-456-7890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="assets/js/logic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

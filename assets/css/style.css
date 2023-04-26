@@ -1,0 +1,108 @@
+.navbar-nav.d-flex {                /*alinear lenguajes a la derecha y centrados vertical*/
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: black;
+}
+.navbar-nav li:last-child {
+    margin-left: 0.5rem;
+}
+.navbar-nav li {
+    margin: 0 1rem;
+}
+.navbar-nav li a {
+    color: white;
+}                                   /*los 3 últimos codigos son para los margenes de español e ingles*/
+
+.navbar {                               /*ajustes al navbar*/
+    background-color: rgb(245, 136, 46);
+}
+.navbar-brand {
+    color: white;
+}
+
+#table-container {                                   /*ajustes a la tabla*/
+    max-height: 550px; /* o la altura máxima que quieras darle */
+    overflow: auto;
+}
+#myTable img {
+    width: 15%;
+    height: auto;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 1px;
+}
+  
+th {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* Ajuste de márgenes y bordes para los formularios */
+/*.container-form {
+    display: inline-block;
+}*/
+.form-container {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+  
+  /* Estilos para los encabezados de los formularios */
+  .form-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los campos de entrada de texto */
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para el botón de enviar */
+  .form-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón de enviar cuando el cursor está sobre él */
+  .form-submit:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilos para el botón de enviar cuando está deshabilitado */
+  .form-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /*footer*/
+  footer {
+    padding: 20px 0;
+  }
+  
+  footer img {
+    max-height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  footer h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
