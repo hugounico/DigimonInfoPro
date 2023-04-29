@@ -25,8 +25,11 @@ fetch("https://digimon-api.vercel.app/api/digimon")
         
               numberCell.textContent = count;
               imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
-              imgCell.id = "img"+count;
+              imgCell.setAttribute("class", "count");
+              imgCell.setAttribute("id", count);
               nameCell.textContent = digimon.name;
+              //nameCell.setAttribute("class", "count");
+              //nameCell.setAttribute("id", count);
               levelCell.textContent = digimon.level;
         
               row.appendChild(numberCell);
@@ -39,12 +42,14 @@ fetch("https://digimon-api.vercel.app/api/digimon")
       })
     .catch(error => console.error('Error:', error));
 
-const pokemonImgs = document.querySelectorAll('#myTable');
+const pokemonImgs = document.querySelectorAll(".count");
 pokemonImgs.forEach(img => {
   img.addEventListener('click', () => {
     
+    //var title = $("#table-body").find("#miid2").text();
+    //console.log(title);
     //alert("Por favor, complete el campo Nombre.")
-    //console.log(img.getAttribute("id"));
+    console.log(img.getAttribute("id"));
     
     /*const pokemon = data[img.getAttribute('data-id')];
     document.getElementById('modal-pokemon-name').textContent = pokemon.name;
