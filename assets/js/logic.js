@@ -25,8 +25,6 @@ fetch("https://digimon-api.vercel.app/api/digimon")
         
               numberCell.textContent = count;
               imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}" class="digimon-img" data-id="${count-1}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
-              //imgCell.setAttribute("class", "count");
-              //imgCell.setAttribute("id", "digimon"+count);
               nameCell.textContent = digimon.name;
               //nameCell.setAttribute("class", "count");
               //nameCell.setAttribute("id", "digimon"+count);
@@ -49,7 +47,18 @@ fetch("https://digimon-api.vercel.app/api/digimon")
               // Obtener información del digimon
               const digimon = data[index];
               // Mostrar ventana modal con información del digimon
-              alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`);
+              //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`);
+              // Actualizar el contenido de los elementos HTML en la ventana modal
+              const modalPokemonName = document.getElementById("modal-pokemon-name");
+              const modalPokemonImg = document.getElementById("modal-pokemon-img");
+              const modalPokemonLevel = document.getElementById("modal-pokemon-level");
+              modalPokemonName.textContent = digimon.name;
+              modalPokemonImg.src = digimon.img;
+              modalPokemonImg.alt = digimon.name;
+              modalPokemonLevel.textContent = `Level: ${digimon.level}`;
+              // Mostrar ventana modal
+              const modal = new bootstrap.Modal(document.getElementById("modal"));
+              modal.show();
               });
             })
       })
