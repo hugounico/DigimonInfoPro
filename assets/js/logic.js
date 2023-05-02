@@ -24,7 +24,7 @@ fetch("https://digimon-api.vercel.app/api/digimon")
               const levelCell = document.createElement("td");
         
               numberCell.textContent = count;
-              imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
+              imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}" class="digimon-img" data-id="${count-1}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
               //imgCell.setAttribute("class", "count");
               //imgCell.setAttribute("id", "digimon"+count);
               nameCell.textContent = digimon.name;
@@ -39,29 +39,21 @@ fetch("https://digimon-api.vercel.app/api/digimon")
         
               tableBody.appendChild(row);
             });
+
+            // Agregar event listener en las celdas de imagen
+            const digimonImgs = document.getElementsByClassName("digimon-img");
+            Array.from(digimonImgs).forEach(img => {
+              img.addEventListener("click", () => {
+              // Obtener índice del digimon
+              const index = parseInt(img.getAttribute("data-id"));
+              // Obtener información del digimon
+              const digimon = data[index];
+              // Mostrar ventana modal con información del digimon
+              alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`);
+              });
+            })
       })
-    .catch(error => console.error('Error:', error));
-
-const pokemonImgs = document.querySelectorAll("#myTable");
-console.log(pokemonImgs)
-pokemonImgs.forEach(img => {
-  img.addEventListener('click', () => {
-    
-    //var title = $("#myTable").find("#id").text();
-    //console.log(img);
-    //alert("Por favor, complete el campo Nombre.")
-    //console.log(img.getAttribute("id"));
-    
-    /*const pokemon = data[img.getAttribute('data-id')];
-    document.getElementById('modal-pokemon-name').textContent = pokemon.name;
-    document.getElementById('modal-pokemon-img').src = pokemon.img;
-    document.getElementById('modal-pokemon-level').textContent = pokemon.level;
-    const modal = new bootstrap.Modal(document.getElementById('modal'));
-    modal.show();*/
-
-  });
-});
-
+      .catch(error => console.error('Error:', error));
 
 //document.getElementById('title').textContent = data.title; //lo verde es el id que esta en el html
 //document.getElementById('poster').src = data.poster;  //lo que esta despues del data. "poster" es el id a buscar en la api
