@@ -43,16 +43,15 @@ fetch("https://digimon-api.vercel.app/api/digimon")
               img.addEventListener("click", () => {                 //agrega el evento del click
               const index = parseInt(img.getAttribute("data-id"));  //obtenemos como numero el id de la imagen
               // Obtener información del digimon
-              const digimon = data[index];
-              //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`); //Prueba exitosa de alerta
-
+              const digimon = data[index];                          //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`); //Prueba exitosa de alerta
+                
                 // Crear la ventana modal
                 var modal = $('<div>').addClass('modal');
                 var modalContent = $('<div>').addClass('modal-content'); 
                 var closeButton = $('<span>').addClass('close').html('&times;');   //&times es una entidad HTML que representa el carácter especial de multiplicación (×)
                 var modalTitle = $('<h5>').text(digimon.name);                     //Agrega nombre del digimon
-                //var modalImage = $('<img>').attr('src', $(digimon.img));        //Agrega imagens del digimon image.attr('src')
-                var modalText = $('<p>').text(digimon.level);                          //Agrega level del digimon
+                //var modalImage = $('<img>').attr('src', $(digimon.img));         //Agrega imagens del digimon image.attr('src')
+                var modalText = $('<p>').text(digimon.level);                      //Agrega level del digimon
              
                 // Agregar contenido a la ventana modal
                 modalContent.append(closeButton);
@@ -74,5 +73,27 @@ fetch("https://digimon-api.vercel.app/api/digimon")
       })
       .catch(error => console.error('Error:', error));
 
-//document.getElementById('title').textContent = data.title; //lo verde es el id que esta en el html
-//document.getElementById('poster').src = data.poster;  //lo que esta despues del data. "poster" es el id a buscar en la api
+//Alerta para solicitar completar un campo
+
+$('.form-container').submit(function(event) {
+    event.preventDefault(); // previene el comportamiento predeterminado del formulario
+
+//Declaracion de variables
+  var correo1 = $('#email-input').val();    // obtiene el valor del campo "email"
+  var correo2 = $('#email-input2').val();   // obtiene el valor del campo "email" form 2
+  var nombre = $('#name-input').val();   // obtiene el valor del campo "nombre"
+  
+    //pedir completar el campo vacio
+    if (nombre === "" || nombre === null || nombre === undefined) {
+      alert("Por favor, complete el campo Nombre.");
+      return;
+    }
+    if (correo2 === "" || correo2 === null || correo2 === undefined) {
+      alert("Por favor, complete el campo correo.");
+      return;
+    }
+    if (correo1 === "" || correo1 === null || correo1=== undefined) {
+      alert("Por favor, complete el campo correo.");
+      return;
+    }
+  })
