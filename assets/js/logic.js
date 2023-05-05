@@ -82,7 +82,7 @@ var formRegistro = $("#form-registro");                   //var boton2 = documen
 function mostrarregistro(){
     if (window.innerWidth < 992) {
         $("#mostrarregistro").on("click", function () {
-          formRegistro.classList.remove("ocultoa") = "block";
+          formRegistro.removeClass("ocultoa").css("display", "block");
         })
       } else {
       }
@@ -98,18 +98,17 @@ $('.form-container').submit(function(event) {
       alert("Por favor, complete el campo correo.");
       return;
     }
-  })
     //MENSAJE AGRADECIMIENTO
     alert("Gracias por registrarte!");
-
-    //HAY QUE VOLVER A ESCONDER EL FORMULARIO
-    if ($('.form-containera').hasClass("ocultoa")) {
+     //HAY QUE VOLVER A ESCONDER EL FORMULARIO
+     if ($('.form-containera').hasClass("ocultoa")) {
       //dejar en blco para pasar directo al else
     } else {
       $('.form-containera').addClass("ocultoa");
     }
-
-
+  })
+    
+  
 
 
 
