@@ -76,24 +76,60 @@ fetch("https://digimon-api.vercel.app/api/digimon")
 //Mostrar formulario de registro y alertas si los campos no estan completos
 
 //VARIABLES PARA MOSTRAR EL FORMULARIO
-var boton2 = document.getElementById("mostrarContenedorB")
-var formularioBB = document.getElementById("contenedorB")
-
+var formRegistro = $("#form-registro");                   //var boton2 = document.getElementById("mostrarContenedorB")
+                                                          //var formularioBB = document.getElementById("contenedorB")
 //FUNCION PARA MOSTRAR EL FORMULARIO
-function mostrarFormularioB(){
+function mostrarregistro(){
     if (window.innerWidth < 992) {
-        boton2.addEventListener("click", function () {
-          formularioBB.classList.remove("d-none") = "block";
+        $("#mostrarregistro").on("click", function () {
+          formRegistro.classList.remove("ocultoa") = "block";
         })
       } else {
       }
 }
 
+//Alerta para solicitar completar un campo
+$('.form-container').submit(function(event) {
+    event.preventDefault(); // previene el comportamiento predeterminado del formulario
+
+//Declaracion de variables
+  var correo1 = $('#email-input').val();    // obtiene el valor del campo "email"
+     if (correo1 === "" || correo1 === null || correo1=== undefined) {
+      alert("Por favor, complete el campo correo.");
+      return;
+    }
+  })
+    //MENSAJE AGRADECIMIENTO
+    alert("Gracias por registrarte!");
+
+    //HAY QUE VOLVER A ESCONDER EL FORMULARIO
+    if ($('.form-containera').hasClass("ocultoa")) {
+      //dejar en blco para pasar directo al else
+    } else {
+      $('.form-containera').addClass("ocultoa");
+    }
 
 
 
-      //Alerta para solicitar completar un campo
 
+
+/*
+//Mostrar formulario de registro y alertas si los campos no estan completos
+
+//VARIABLES PARA MOSTRAR EL FORMULARIO
+var formRegistro = $("#form-registro");                   //var boton2 = document.getElementById("mostrarContenedorB")
+                                                          //var formularioBB = document.getElementById("contenedorB")
+//FUNCION PARA MOSTRAR EL FORMULARIO
+function mostrarregistro(){
+    if (window.innerWidth < 992) {
+        $("#mostrarregistro").on("click", function () {
+          formRegistro.classList.remove("ocultoa") = "block";
+        })
+      } else {
+      }
+}
+
+//Alerta para solicitar completar un campo
 $('.form-container').submit(function(event) {
     event.preventDefault(); // previene el comportamiento predeterminado del formulario
 
@@ -117,48 +153,14 @@ $('.form-container').submit(function(event) {
     }
   })
 
-
     //MENSAJE AGRADECIMIENTO
     alert("Estimado(a): " + nombre2 + ".Agradecemos por reservar con nosotros, hemos registrado " + inputcantidadAsist + " de asistentes. Se ha enviado un codigo de confirmación al correo " + correo2 + ". Gracias por preferirnos.");
 
     //HAY QUE VOLVER A ESCONDER EL FORMULARIO
-    if ($('.formularioBB').hasClass("d-none")) {
+    if ($('.form-containera').hasClass("ocultoa")) {
       //dejar en blco para pasar directo al else
     } else {
-      $('.formularioBB').addClass("d-none");
-    }
+      $('.form-containera').addClass("ocultoa");
+    }*/
 
 
-
-
-
-
-
-
-    
-
-
-  //Alerta para solicitar completar un campo
-
-$('.form-container').submit(function(event) {
-  event.preventDefault(); // previene el comportamiento predeterminado del formulario
-
-//Declaracion de variables
-var correo1 = $('#email-input').val();    // obtiene el valor del campo "email"
-var correo2 = $('#email-input2').val();   // obtiene el valor del campo "email" form 2
-var nombre = $('#name-input').val();   // obtiene el valor del campo "nombre"
-
-  //pedir completar el campo vacio
-  if (nombre === "" || nombre === null || nombre === undefined) {
-    alert("Por favor, complete el campo Nombre.");
-    return;
-  }
-  if (correo2 === "" || correo2 === null || correo2 === undefined) {
-    alert("Por favor, complete el campo correo.");
-    return;
-  }
-  if (correo1 === "" || correo1 === null || correo1=== undefined) {
-    alert("Por favor, complete el campo correo.");
-    return;
-  }
-})
