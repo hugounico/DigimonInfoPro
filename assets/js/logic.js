@@ -27,7 +27,6 @@ fetch("https://digimon-api.vercel.app/api/digimon")
               imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}" class="digimon-img" data-id="${count-1}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
               nameCell.textContent = digimon.name;
               //nameCell.setAttribute("class", "count");
-              //nameCell.setAttribute("id", "digimon"+count);
               levelCell.textContent = digimon.level;
         
               row.appendChild(numberCell);
@@ -40,25 +39,36 @@ fetch("https://digimon-api.vercel.app/api/digimon")
 
             // Agregar event listener en las celdas de imagen
             const digimonImgs = document.getElementsByClassName("digimon-img");
-            Array.from(digimonImgs).forEach(img => {
-              img.addEventListener("click", () => {
-              // Obtener índice del digimon
-              const index = parseInt(img.getAttribute("data-id"));
+            Array.from(digimonImgs).forEach(img => {                //Arma una array con las imagenes
+              img.addEventListener("click", () => {                 //agrega el evento del click
+              const index = parseInt(img.getAttribute("data-id"));  //obtenemos como numero el id de la imagen
               // Obtener información del digimon
               const digimon = data[index];
-              // Mostrar ventana modal con información del digimon
-              //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`);
-              // Actualizar el contenido de los elementos HTML en la ventana modal
-              const modalPokemonName = document.getElementById("modal-pokemon-name");
-              const modalPokemonImg = document.getElementById("modal-pokemon-img");
-              const modalPokemonLevel = document.getElementById("modal-pokemon-level");
-              modalPokemonName.textContent = digimon.name;
-              modalPokemonImg.src = digimon.img;
-              modalPokemonImg.alt = digimon.name;
-              modalPokemonLevel.textContent = `Level: ${digimon.level}`;
-              // Mostrar ventana modal
-              const modal = new bootstrap.Modal(document.getElementById("modal"));
-              modal.show();
+              //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`); //Prueba exitosa de alerta
+
+                // Crear la ventana modal
+                var modal = $('<div>').addClass('modal');
+                var modalContent = $('<div>').addClass('modal-content'); 
+                var closeButton = $('<span>').addClass('close').html('&times;');   //&times es una entidad HTML que representa el carácter especial de multiplicación (×)
+                var modalTitle = $('<h5>').text(digimon.name);                     //Agrega nombre del digimon
+                //var modalImage = $('<img>').attr('src', $(digimon.img));        //Agrega imagens del digimon image.attr('src')
+                var modalText = $('<p>').text(digimon.level);                          //Agrega level del digimon
+             
+                // Agregar contenido a la ventana modal
+                modalContent.append(closeButton);
+                //modalContent.append(modalImage);
+                modalContent.append(modalTitle);
+                modalContent.append(modalText);
+                modal.append(modalContent);
+                $('body').append(modal);
+
+                // Mostrar la ventana modal
+                modal.show();
+
+                  // Manejar el clic en la x para cerrar la ventana modal
+                  closeButton.click(function() {
+                  modal.remove()
+                  });
               });
             })
       })
