@@ -26,6 +26,9 @@
 .btn {
     background-color: #ffb304;  /* Color del boton buscar */
 }
+#btn-group {
+    background-color: #04AA6D;
+}
 
 #table-container {                                   /*ajustes a la tabla*/
     max-height: 550px; /* o la altura máxima que quieras darle */
@@ -68,6 +71,11 @@ th {
     margin: auto;
     width: 80%;
 }
+/*Responsividad Formularios*/
+@media (max-width: 991.98px) {
+    .form-container {
+      display: none;
+}}
 
 /*CSS footer*/
   
@@ -77,6 +85,15 @@ footer h4 {
 .textf {
     text-align: right;
     padding-right: 2%;
+}
+/*Responsividad Footer*/
+@media (max-width: 767.9px) {
+    .textf {
+      display: none;
+    }
+    #footerimg {
+      margin-left: 15%;
+    }
 }
 
 /*CSS Ventana Modal*/
