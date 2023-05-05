@@ -54,7 +54,7 @@ th {
 }
 
 /* Estilos para los formularios */
-.form-container{
+.form-containera,.form-containerb{
     width: 98%;
     margin: auto;
     margin-top: 4%;
@@ -73,7 +73,7 @@ th {
 }
 /*Responsividad Formularios*/
 @media (max-width: 991.98px) {
-    .form-container {
+    .ocultoa, .ocultob {
       display: none;
 }}
 
