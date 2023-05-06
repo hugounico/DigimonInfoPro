@@ -16,18 +16,19 @@
 
   </head>
   <body>
-    <div class="navbar-overlay">                  <!--barra negra sobre el navbar-->
-      <div class="navbar-overlay-bar"></div>
-      <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="assets/img/banderachile.jpg" alt="Español" width="20" height="20"> Español
-          </a>
-        </li>
-        <li class="nav-item mr-auto">
-          <a class="nav-link" href="#"><img src="assets/img/banderauk.jpg" alt="Inglés" width="20" height="20"> Inglés
-          </a>
-        </li>
-      </ul>
+    <div class="navbar-overlay-bar">                  <!--barra negra sobre el navbar-->
+      <div class="container-fluid">
+        <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="assets/img/banderachile.jpg" alt="Español" width="20" height="20"> Español
+            </a>
+          </li>
+          <li class="nav-item mr-auto">
+            <a class="nav-link" href="#"><img src="assets/img/banderauk.jpg" alt="Inglés" width="20" height="20"> Inglés
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     
     <nav class="navbar navbar-expand-lg">  <!--navbar-->
@@ -47,7 +48,7 @@
           </ul>
           <form class="d-flex" role="search"> <!--PARTE La forma donde esta el boton buscar-->
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Search</button>
+            <button class="btn btn-success" id="botonnav" type="submit">Search</button>
           </form>
         </div>
       </div>

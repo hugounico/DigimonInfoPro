@@ -1,6 +1,6 @@
 $(document).ready(function() {                                  //cambia de color cuando paso el mouse x encima de español o inglés
     $('.navbar-nav li a').mouseenter(function() {
-      $(this).css('color', 'red');
+      $(this).css('color', 'Yellow');
     }).mouseleave(function() {
       $(this).css('color', 'white');
     });

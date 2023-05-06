@@ -1,17 +1,18 @@
-.navbar-nav.d-flex {                /*alinear lenguajes a la derecha y centrados vertical*/
+.navbar-overlay-bar, .container-fluid {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+.navbar-nav.d-flex {                /*alinear lenguajes a la derecha*/
     flex-direction: row-reverse;
-    align-items: center;
     background-color: black;
 }
-.navbar-nav li:last-child {
-    margin-left: 0.5rem;
+.navbar-nav li {                    /*margenes de español e ingles*/
+    margin: 0 1rem;    
 }
-.navbar-nav li {
-    margin: 0 1rem;
-}
-.navbar-nav li a {
+.navbar-nav li a {                  /*color registrate y comenta*/
     color: white;
-}                                   /*los 3 últimos codigos son para los margenes de español e ingles*/
+}                                 
 
 .navbar {                               /*ajustes al navbar*/
     background-color: #0170a4;
@@ -62,6 +63,7 @@ th {
     background-color: #0170a4;
     padding: 4%;
     color: white;
+    margin-left: 2%;
 }
 .titulointerno{
     margin-bottom: 5%;
@@ -70,6 +72,10 @@ th {
 #inputcomentario{
     margin: auto;
     width: 80%;
+}
+.container-form {
+    background-color: #ffb304;
+    margin-right: 0%;
 }
 /*Responsividad Formularios*/
 @media (max-width: 991.98px) {
@@ -98,37 +104,38 @@ footer h4 {
 
 /*CSS Ventana Modal*/
 .modal {
-    width: 500px;
-    display: flex;
+    position:fixed;
+    width: 90%;
+    height: 90%;
     align-items: center;
     background-color: white;
+    border-style: solid;
+    border-color: #ffb304;
+    margin: 5%;
+    padding: 0%;
 }
 .modal-content {
-    width: 300px;
-    height: 400px;
-    background-color: #431472;
-    border-radius: 10px;
+    background-color: #0170a4;
     color: aliceblue;
-
-    display: flex;
     flex-direction: column;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    margin: 0%;
+    padding-top: 5%;
 }
-/*.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;}*/
+
 .card-img-top {
     max-width: 100%;
     height: auto;
-    margin-top: 10px;
 }
 .close {
     position: absolute;
     top: 10px;
     right: 10px;
+    color: #ffb304;
+}
+
+.btn:hover, .close:hover {           /*aumenta tamaño de botones*/
+    transform: scale(1.5);
 }
