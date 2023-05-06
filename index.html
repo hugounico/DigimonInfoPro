@@ -16,18 +16,19 @@
 
   </head>
   <body>
-    <div class="navbar-overlay">                  <!--barra negra sobre el navbar-->
-      <div class="navbar-overlay-bar"></div>
-      <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="assets/img/banderachile.jpg" alt="Español" width="20" height="20"> Español
-          </a>
-        </li>
-        <li class="nav-item mr-auto">
-          <a class="nav-link" href="#"><img src="assets/img/banderauk.jpg" alt="Inglés" width="20" height="20"> Inglés
-          </a>
-        </li>
-      </ul>
+    <div class="navbar-overlay-bar">                  <!--barra negra sobre el navbar-->
+      <div class="container-fluid">
+        <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="assets/img/banderachile.jpg" alt="Español" width="20" height="20"> Español
+            </a>
+          </li>
+          <li class="nav-item mr-auto">
+            <a class="nav-link" href="#"><img src="assets/img/banderauk.jpg" alt="Inglés" width="20" height="20"> Inglés
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     
     <nav class="navbar navbar-expand-lg">  <!--navbar-->
@@ -39,15 +40,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> <!--PARTE el contenedor donde esta el home y el link-->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a onclick="mostrarregistro()" class="nav-link active" id="mostrarregistro" aria-current="page" href="#form-registro">Registrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a onclick="mostrarcoments()" class="nav-link" id="mostrarcoments" href="#form-coments">Comenta tus Ideas</a>
             </li>
           </ul>
           <form class="d-flex" role="search"> <!--PARTE La forma donde esta el boton buscar-->
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Search</button>
+            <button class="btn btn-success" id="botonnav" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -56,21 +57,21 @@
     <div class="container-fluid"> <!--CONTENEDOR DE FORMULARIOS Y TABLA TAMBIEN!-->
       <div class="row">
         <div class="container-form col-lg-3"> <!--CONTENEDOR 2 FORMULARIOS IZQUIERDA-->
-          <div class="form-container">  <!--PRIMER FORMULARIO-->
+          <div class="form-containera ocultoa" id="form-registro">  <!--PRIMER FORMULARIO-->
             <h3 class="titulointerno">Registrate y recibe nuestras noticias</h3> 
             <form>
                 <label for="email-input">Correo electrónico:</label>
-                <input type="email" id="email-input" name="email-input" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2, }$" required>
+                <input type="email" id="email-input" name="email-input" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2,}$">
                 <button type="submit">Resgistrarme</button>
             </form>
           </div>
-          <div class="form-container">  <!--SEGUNDO FORMULARIO-->
+          <div class="form-containerb ocultob" id="form-coments">  <!--SEGUNDO FORMULARIO-->
             <h3 class="titulointerno">Déjanos tus comentarios para ser mejores</h3>
             <form>
               <label for="name-input">Nombre:</label>
-              <input type="text" id="name-input" name="name-input" placeholder="Luis Moreno" required>
+              <input type="text" id="name-input" name="name-input" placeholder="Luis Moreno">
               <label for="email-input2">Correo electrónico:</label>
-              <input type="email" id="email-input2" name="email-input2" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2, }$" required>
+              <input type="email" id="email-input2" name="email-input2" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2,}$">
               <label for="inputcomentario">Comentarios:</label>
               <textarea id="inputcomentario" name="inputcomentario"></textarea>
              <button type="submit">Enviar</button>
@@ -113,20 +114,10 @@
       </div>
     </footer>
 
-    <!--<div id="modal" class="modal">
-      <div class="modal-content">
-        <h5 class="card-title" id="modal-pokemon-name"></h5>
-        <img class="card-img-top" id="modal-pokemon-img" alt="">
-        <p class="card-text" id="modal-pokemon-level"></p>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-    </div>-->
-    
-
     <script src="assets/js/logic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
 </html>
 
-<!--CONTENEDOR DE LA TABLA22-->
+<!--CONTENEDOR DE LA TABLA223-->
