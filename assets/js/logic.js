@@ -49,13 +49,15 @@ fetch("https://digimon-api.vercel.app/api/digimon")
                 var modal = $('<div>').addClass('modal');
                 var modalContent = $('<div>').addClass('modal-content'); 
                 var closeButton = $('<span>').addClass('close').html('&times;');   //&times es una entidad HTML que representa el carácter especial de multiplicación (×)
-                var modalTitle = $('<h5>').text(digimon.name);                     //Agrega nombre del digimon
-                //var modalImage = $('<img>').attr('src', $(digimon.img));         //Agrega imagens del digimon image.attr('src')
+                var modalTitle = $('<h5>').text(digimon.name);  //Agrega nombre del digimon
+                //var imgfile = digimon.img
+                //console.log(imgfile)                
+                var modalImage = $('<img>').attr('src', digimon.img);         //Agrega imagens del digimon image.attr('src')
                 var modalText = $('<p>').text(digimon.level);                      //Agrega level del digimon
              
                 // Agregar contenido a la ventana modal
                 modalContent.append(closeButton);
-                //modalContent.append(modalImage);
+                modalContent.append(modalImage);
                 modalContent.append(modalTitle);
                 modalContent.append(modalText);
                 modal.append(modalContent);
