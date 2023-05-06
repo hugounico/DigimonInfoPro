@@ -141,7 +141,7 @@ $('.form-containerb').submit(function(event) {
       return;
     }
         //MENSAJE AGRADECIMIENTO
-        alert("Estimado(a): " + nombre + ".Gracias por tú comentario!");
+        alert("Estimado(a): " + nombre + ". Gracias por tú comentario!");
 
         //HAY QUE VOLVER A ESCONDER EL FORMULARIO
         if ($('.form-containerb').hasClass("ocultob")) {
