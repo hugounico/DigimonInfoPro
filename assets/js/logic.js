@@ -11,21 +11,22 @@ const buttons = document.getElementById('buttons')
 let urlDigimon = "https://digimon-api.vercel.app/api/digimon"
 let btnNext;
 let btnPrevious;
+let result = [];
 
 const GetDigimons = async (url) => {
     try {
         const response = await fetch(url);
         const result = await response.json();
         console.log(result);
-        currentPage = 0; // Reiniciar la página actual al cargar nuevos datos
-        showPage(result, currentPage); // Llamar a showPage con los nuevos datos
+        currentPage = 0;
+        showPage(result, currentPage);
     } catch (error) {
       console.log(error);
     }
 }
 
 let currentPage = 0;
-const itemsPerPage = 20; // Cambia esto al número deseado de elementos por página
+const itemsPerPage = 20;
 
 // Función para mostrar una página específica de resultados
 const showPage = (data, page) => {
@@ -58,7 +59,7 @@ document.getElementById("prevPage").addEventListener("click", () => {
 });
 
 document.getElementById("nextPage").addEventListener("click", () => {
-  const totalPages = Math.ceil(result.length / itemsPerPage);
+  const totalPages = 11;
   if (currentPage < totalPages - 1) {
       currentPage++;
       showPage(result, currentPage);
