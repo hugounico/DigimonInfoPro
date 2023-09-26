@@ -1,21 +1,8 @@
-.navbar-overlay-bar, .container-fluid {
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-}
-.navbar-nav.d-flex {                /*alinear lenguajes a la derecha*/
-    flex-direction: row-reverse;
-    background-color: black;
-}
-.navbar-nav li {                    /*margenes de español e ingles*/
-    margin: 0 1rem;    
-}
 .navbar-nav li a {                  /*color registrate y comenta*/
     color: white;
 }                                 
-
 .navbar {                               /*ajustes al navbar*/
-    background-color: #0170a4;
+    background-color: #142a3a;
 }
 .navbar-brand {
     color: white;               /*Color del texto*/
@@ -24,67 +11,11 @@
 .navbar-brand img {
     margin-right: 10px;
 }
-.btn {
-    background-color: #ffb304;  /* Color del boton buscar */
-}
 #btn-group {
     background-color: #04AA6D;
 }
 
-#table-container {                                   /*ajustes a la tabla*/
-    max-height: 550px; /* o la altura máxima que quieras darle */
-    overflow: auto;
-}
-#myTable img {
-    width: 15%;
-    height: auto;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-th, td {
-    text-align: center;
-    border: 1px solid black;
-    padding: 1px;
-}
-  
-th {
-    background-color: #04AA6D;
-    color: white;
-}
-
-/* Estilos para los formularios */
-.form-containera,.form-containerb{
-    width: 98%;
-    margin: auto;
-    margin-top: 4%;
-    margin-bottom: 2%;
-    background-color: #0170a4;
-    padding: 4%;
-    color: white;
-    margin-left: 2%;
-}
-.titulointerno{
-    margin-bottom: 5%;
-    color: white;
-}
-#inputcomentario{
-    margin: auto;
-    width: 80%;
-}
-.container-form {
-    background-color: #ffb304;
-    margin-right: 0%;
-}
-/*Responsividad Formularios*/
-@media (max-width: 991.98px) {
-    .ocultoa, .ocultob {
-      display: none;
-}}
-
 /*CSS footer*/
-  
 footer h4 {
     font-weight: bold;
 }
@@ -102,40 +33,44 @@ footer h4 {
     }
 }
 
-/*CSS Ventana Modal*/
-.modal {
-    position:fixed;
-    width: 90%;
-    height: 90%;
-    align-items: center;
-    background-color: white;
-    border-style: solid;
-    border-color: #ffb304;
-    margin: 5%;
-    padding: 0%;
+/*CSS imagenes*/
+.list_digimons {
+    background-color: #04addc;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 2em;
+    padding: 1em;
+    text-align: center;
 }
-.modal-content {
-    background-color: #0170a4;
-    color: aliceblue;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    margin: 0%;
-    padding-top: 5%;
+.digimon_img{
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 8em;
+    color: #fff;
+    padding: 0.5em;
 }
-
-.card-img-top {
-    max-width: 100%;
-    height: auto;
-}
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #ffb304;
+.digimon_img img {
+    height: 200px;
+    width: 100%;
+    margin-top: -5em;
 }
 
-.btn:hover, .close:hover {           /*aumenta tamaño de botones*/
+/*CSS buttons*/
+.container {
+    background-color: #04addc;
+    display: inline-block;
+}
+/*.botones {
+    
+}*/
+
+
+/*.btn:hover, .close:hover {           aumenta tamaño de botones
     transform: scale(1.5);
-}
+}*/
+/*Responsividad Formularios
+@media (max-width: 991.98px) {
+    .ocultoa, .ocultob {
+      display: none;
+}}*/

@@ -1,155 +1,107 @@
-$(document).ready(function() {                                  //cambia de color cuando paso el mouse x encima de español o inglés
+/*$(document).ready(function() {                                  //cambia de color cuando paso el mouse x encima de español o inglés
     $('.navbar-nav li a').mouseenter(function() {
       $(this).css('color', 'Yellow');
     }).mouseleave(function() {
       $(this).css('color', 'white');
     });
+});*/
+
+const list_digimons = document.getElementById('list_digimons')
+const buttons = document.getElementById('buttons')
+let urlDigimon = "https://digimon-api.vercel.app/api/digimon"
+let btnNext;
+let btnPrevious;
+
+const GetDigimons = async (url) => {
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        currentPage = 0; // Reiniciar la página actual al cargar nuevos datos
+        showPage(result, currentPage); // Llamar a showPage con los nuevos datos
+    } catch (error) {
+      console.log(error);
+    }
+}
+
+let currentPage = 0;
+const itemsPerPage = 20; // Cambia esto al número deseado de elementos por página
+
+// Función para mostrar una página específica de resultados
+const showPage = (data, page) => {
+  list_digimons.innerHTML = '';
+  const start = page * itemsPerPage;
+  const end = start + itemsPerPage;
+  
+  for (let i = start; i < end && i < data.length; i++) {
+      const resul = data[i];
+      const templateHtml = `
+          <div class="digimon_img">
+              <img src="${resul.img}" alt="${resul.name}">
+              <p>"${resul.name}"</p>
+              <p>"${resul.level}"</p>
+          </div>
+      `;
+      list_digimons.innerHTML += templateHtml;
+  }
+}
+
+// Llamar a showPage en lugar de DataDigimons inicialmente
+GetDigimons(urlDigimon);
+
+// Manejar los eventos de los botones de navegación
+document.getElementById("prevPage").addEventListener("click", () => {
+  if (currentPage > 0) {
+      currentPage--;
+      showPage(result, currentPage);
+  }
 });
 
-let data;
+document.getElementById("nextPage").addEventListener("click", () => {
+  const totalPages = Math.ceil(result.length / itemsPerPage);
+  if (currentPage < totalPages - 1) {
+      currentPage++;
+      showPage(result, currentPage);
+  }
+});
 
-fetch("https://digimon-api.vercel.app/api/digimon")
-    .then(response => response.json())
-      .then(data => {                                   //data es donde se traera la informacion
 
-        const tableBody = document.getElementById("table-body");
-          let count = 0; //crea la variable count que parte en 0
-        
-            data.forEach(digimon => {
-              count++; //aumenta la variable count de 1 en 1 para cada iteracion
-              const row = document.createElement("tr");
-              const numberCell = document.createElement("td");
-              const imgCell = document.createElement("td");
-              const nameCell = document.createElement("td");
-              const levelCell = document.createElement("td");
-        
-              numberCell.textContent = count;
-              imgCell.innerHTML = `<img src="${digimon.img}" alt="${digimon.name}" class="digimon-img" data-id="${count-1}">`; /*PROBANDO DATA-ID para que al hacer click en al imagen abra un card*/
-              nameCell.textContent = digimon.name;
-              //nameCell.setAttribute("class", "count");
-              levelCell.textContent = digimon.level;
-        
-              row.appendChild(numberCell);
-              row.appendChild(imgCell);
-              row.appendChild(nameCell);
-              row.appendChild(levelCell);
-        
-              tableBody.appendChild(row);
-            });
-
-            // Agregar event listener en las celdas de imagen
-            const digimonImgs = document.getElementsByClassName("digimon-img");
-            Array.from(digimonImgs).forEach(img => {                //Arma una array con las imagenes
-              img.addEventListener("click", () => {                 //agrega el evento del click
-              const index = parseInt(img.getAttribute("data-id"));  //obtenemos como numero el id de la imagen
-              // Obtener información del digimon
-              const digimon = data[index];                          //alert(`Nombre: ${digimon.name}\nLevel: ${digimon.level}\nImagen: ${digimon.img}`); //Prueba exitosa de alerta
-                
-                // Crear la ventana modal
-                var modal = $('<div>').addClass('modal');
-                var modalContent = $('<div>').addClass('modal-content'); 
-                var closeButton = $('<span>').addClass('close').html('&times;');   //&times es una entidad HTML que representa el carácter especial de multiplicación (×)
-                var modalTitle = $('<h5>').text(digimon.name);  //Agrega nombre del digimon
-                //var imgfile = digimon.img
-                //console.log(imgfile)                
-                var modalImage = $('<img>').attr('src', digimon.img);         //Agrega imagens del digimon image.attr('src')
-                var modalText = $('<p>').text(digimon.level);                      //Agrega level del digimon
-             
-                // Agregar contenido a la ventana modal
-                modalContent.append(closeButton);
-                modalContent.append(modalImage);
-                modalContent.append(modalTitle);
-                modalContent.append(modalText);
-                modal.append(modalContent);
-                $('body').append(modal);
-
-                // Mostrar la ventana modal
-                modal.show();
-
-                  // Manejar el clic en la x para cerrar la ventana modal
-                  closeButton.click(function() {
-                  modal.remove()
-                  });
-              });
-            })
-      })
-      .catch(error => console.error('Error:', error));
-
-//Mostrar formulario de registro y alertas si los campos no estan completos
-
-//VARIABLES PARA MOSTRAR EL FORMULARIO
-var formRegistro = $("#form-registro");                   //var boton2 = document.getElementById("mostrarContenedorB")
-                                                          //var formularioBB = document.getElementById("contenedorB")
-//FUNCION PARA MOSTRAR EL FORMULARIO
-function mostrarregistro(){
-    if (window.innerWidth < 992) {
-        $("#mostrarregistro").on("click", function () {
-          formRegistro.removeClass("ocultoa");            //.css("display", "block")
-        })
-      } else {
-      }
+/*
+const GetDigimons = async (url) => {
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        DataDigimons(result);
+    } catch (error) {
+      console.log(error);
+    }
 }
 
-//Alerta para solicitar completar un campo
-$('.form-containera').submit(function(event) {
-    event.preventDefault(); // previene el comportamiento predeterminado del formulario
+GetDigimons(urlDigimon);
 
-//Declaracion de variables
-  var correo1 = $('#email-input').val();    // obtiene el valor del campo "email"
-     if (correo1 === "" || correo1 === null || correo1=== undefined) {
-      alert("Por favor, complete el campo correo.");
-      return;
+const DataDigimons = async (data) => {
+  console.log(data);
+  list_digimons.innerHTML = '';
+    try {
+      data.forEach(resul => {
+        console.log(resul)
+        templateHtml=`
+            <div class="digimon_img">
+            <img src="${resul.img}" alt="${resul.name}">
+            <p>"${resul.name}"</p>
+            <p>"${resul.level}"</p>
+            </div>
+            `
+            list_digimons.innerHTML+=templateHtml
+      });  
+      
+      } catch (error) {
+        console.log(error)
     }
-    //MENSAJE AGRADECIMIENTO
-    alert("Gracias por registrarte!");
-     //HAY QUE VOLVER A ESCONDER EL FORMULARIO
-     if ($('.form-containera').hasClass("ocultoa")) {
-      //dejar en blco para pasar directo al else
-    } else {
-      $('.form-containera').addClass("ocultoa");
-    }
-  })
-    
-//Mostrar formulario de comentarios y alertas si los campos no estan completos
+}*/
 
-//VARIABLES PARA MOSTRAR EL FORMULARIO
-var formComent = $("#form-coments");                      //var boton2 = document.getElementById("mostrarContenedorB")
-                                                          //var formularioBB = document.getElementById("contenedorB")
-//FUNCION PARA MOSTRAR EL FORMULARIO
-function mostrarcoments(){
-    if (window.innerWidth < 992) {
-        $("#mostrarcoments").on("click", function () {
-          formComent.removeClass("ocultob");
-        })
-      } else {
-      }
-}
+//fetch("https://digimon-api.vercel.app/api/digimon")
+    //.then(response => response.json())
+      //.then(data => {             })                      //data es donde se traera la informacion ``
 
-//Alerta para solicitar completar un campo
-$('.form-containerb').submit(function(event) {
-    event.preventDefault(); // previene el comportamiento predeterminado del formulario
-
-//Declaracion de variables
-  var correo2 = $('#email-input2').val();   // obtiene el valor del campo "email" form 2
-  var nombre = $('#name-input').val();      // obtiene el valor del campo "nombre"
-  
-    //pedir completar el campo vacio
-    if (nombre === "" || nombre === null || nombre === undefined) {
-      alert("Por favor, complete el campo Nombre.");
-      return;
-    }
-    if (correo2 === "" || correo2 === null || correo2 === undefined) {
-      alert("Por favor, complete el campo correo.");
-      return;
-    }
-        //MENSAJE AGRADECIMIENTO
-        alert("Estimado(a): " + nombre + ". Gracias por tú comentario!");
-
-        //HAY QUE VOLVER A ESCONDER EL FORMULARIO
-        if ($('.form-containerb').hasClass("ocultob")) {
-          //dejar en blco para pasar directo al else
-        } else {
-          $('.form-containerb').addClass("ocultob");
-        }
-  })
- 
