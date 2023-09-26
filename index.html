@@ -16,86 +16,30 @@
 
   </head>
   <body>
-    <div class="navbar-overlay-bar">                  <!--barra negra sobre el navbar-->
-      <div class="container-fluid">
-        <ul class="navbar-nav ml-auto d-flex">      <!--abre la lista para ambos idiomas-->
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img src="assets/img/banderachile.jpg" alt="Español" width="20" height="20"> Español
-            </a>
-          </li>
-          <li class="nav-item mr-auto">
-            <a class="nav-link" href="#"><img src="assets/img/banderauk.jpg" alt="Inglés" width="20" height="20"> Inglés
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
     <nav class="navbar navbar-expand-lg">  <!--navbar-->
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="assets/img/logodigimon80x167.png" width="80">Digimon Pro Info</a>
+        <a class="navbar-brand" href=""><img src="assets/img/logodigimon80x167.png" width="80"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" id="btn-group"></span> <!--span es la forma del incono que se muestra// ESTE ES EL BOTON QUE SALE CUANDO SE RECOJE-->
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> <!--PARTE el contenedor donde esta el home y el link-->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a onclick="mostrarregistro()" class="nav-link active" id="mostrarregistro" aria-current="page" href="#form-registro">Registrate</a>
-            </li>
-            <li class="nav-item">
-              <a onclick="mostrarcoments()" class="nav-link" id="mostrarcoments" href="#form-coments">Comenta tus Ideas</a>
+              <a class="nav-link" id="digimonproinfo" aria-current="page" href="">Digimon Pro Info</a>
             </li>
           </ul>
-          <form class="d-flex" role="search"> <!--PARTE La forma donde esta el boton buscar-->
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" id="botonnav" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid"> <!--CONTENEDOR DE FORMULARIOS Y TABLA TAMBIEN!-->
-      <div class="row">
-        <div class="container-form col-lg-3"> <!--CONTENEDOR 2 FORMULARIOS IZQUIERDA-->
-          <div class="form-containera ocultoa" id="form-registro">  <!--PRIMER FORMULARIO-->
-            <h3 class="titulointerno">Registrate y recibe nuestras noticias</h3> 
-            <form>
-                <label for="email-input">Correo electrónico:</label>
-                <input type="email" id="email-input" name="email-input" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2,}$">
-                <button type="submit">Resgistrarme</button>
-            </form>
-          </div>
-          <div class="form-containerb ocultob" id="form-coments">  <!--SEGUNDO FORMULARIO-->
-            <h3 class="titulointerno">Déjanos tus comentarios para ser mejores</h3>
-            <form>
-              <label for="name-input">Nombre:</label>
-              <input type="text" id="name-input" name="name-input" placeholder="Luis Moreno">
-              <label for="email-input2">Correo electrónico:</label>
-              <input type="email" id="email-input2" name="email-input2" placeholder="Ejemplo: correo@correo.com" pattern="^[^@]+@[^@]+\.[A-Za-z]{2,}$">
-              <label for="inputcomentario">Comentarios:</label>
-              <textarea id="inputcomentario" name="inputcomentario"></textarea>
-             <button type="submit">Enviar</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="container-table col-lg-9" id="table-container"> <!--CONTENEDOR DE LA TABLA-->
-          <table class="table-primary" id="myTable">
-            <thead>
-              <tr class="table-primary">
-                <th width="12%">#</th>
-                <th width="40%">Imagen</th>
-                <th width="24%">Nombre</th>
-                <th width="24%">Nivel</th>
-              </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="list_digimons" id="list_digimons">
     </div>
 
+    <div class="container text-center col-xxl-16 buttons" id="buttons">
+      <button class="botones" id="prevPage" src="/assets/img/clipart50817.png" alt="Volver"></button>
+      <button class="botones" id="nextPage" src="/assets/img/clipart121569.png" alt="Siguiente"></button>
+    </div>
+        
     <footer class="bg-dark text-white">
       <div class="container_footer">
         <div class="row align-items-center">
@@ -119,5 +63,3 @@
 
   </body>
 </html>
-
-<!--CONTENEDOR DE LA TABLA223-->
