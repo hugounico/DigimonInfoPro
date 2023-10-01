@@ -7,35 +7,32 @@
 });*/
 
 const list_digimons = document.getElementById('list_digimons')
-const buttons = document.getElementById('buttons')
 let urlDigimon = "https://digimon-api.vercel.app/api/digimon"
-let btnNext;
-let btnPrevious;
-let result = [];
+let result;
 
 const GetDigimons = async (url) => {
     try {
         const response = await fetch(url);
-        const result = await response.json();
+        result = await response.json();
         console.log(result);
-        currentPage = 0;
-        showPage(result, currentPage);
+        currentPage = 1;
+        showPage(currentPage);
     } catch (error) {
       console.log(error);
     }
 }
 
-let currentPage = 0;
+let currentPage = 1;
 const itemsPerPage = 20;
 
-// Función para mostrar una página específica de resultados
-const showPage = (data, page) => {
+const showPage = (page) => {
   list_digimons.innerHTML = '';
-  const start = page * itemsPerPage;
+  const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
-  
-  for (let i = start; i < end && i < data.length; i++) {
-      const resul = data[i];
+  const pageItems = result.slice(start, end);
+
+  for (let i = 0; i < pageItems.length; i++) {
+      const resul = pageItems[i];
       const templateHtml = `
           <div class="digimon_img">
               <img src="${resul.img}" alt="${resul.name}">
@@ -47,62 +44,26 @@ const showPage = (data, page) => {
   }
 }
 
-// Llamar a showPage en lugar de DataDigimons inicialmente
-GetDigimons(urlDigimon);
-
-// Manejar los eventos de los botones de navegación
-document.getElementById("prevPage").addEventListener("click", () => {
-  if (currentPage > 0) {
+// Función para navegar a la página anterior
+const goToPrevPage = () => {
+  if (currentPage > 1) {
       currentPage--;
-      showPage(result, currentPage);
+      showPage(currentPage);
   }
-});
-
-document.getElementById("nextPage").addEventListener("click", () => {
-  const totalPages = 11;
-  if (currentPage < totalPages - 1) {
-      currentPage++;
-      showPage(result, currentPage);
-  }
-});
-
-
-/*
-const GetDigimons = async (url) => {
-    try {
-        const response = await fetch(url);
-        const result = await response.json();
-        console.log(result);
-        DataDigimons(result);
-    } catch (error) {
-      console.log(error);
-    }
 }
 
+// Función para navegar a la página siguiente
+const goToNextPage = () => {
+  const totalPages = Math.ceil(result.length / itemsPerPage);
+  if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+  }
+}
+
+// Agrega event listeners a los botones de paginación
+document.getElementById("prevPage").addEventListener('click', goToPrevPage);
+document.getElementById("nextPage").addEventListener('click', goToNextPage);
+
+// Llama a GetDigimons para cargar los datos
 GetDigimons(urlDigimon);
-
-const DataDigimons = async (data) => {
-  console.log(data);
-  list_digimons.innerHTML = '';
-    try {
-      data.forEach(resul => {
-        console.log(resul)
-        templateHtml=`
-            <div class="digimon_img">
-            <img src="${resul.img}" alt="${resul.name}">
-            <p>"${resul.name}"</p>
-            <p>"${resul.level}"</p>
-            </div>
-            `
-            list_digimons.innerHTML+=templateHtml
-      });  
-      
-      } catch (error) {
-        console.log(error)
-    }
-}*/
-
-//fetch("https://digimon-api.vercel.app/api/digimon")
-    //.then(response => response.json())
-      //.then(data => {             })                      //data es donde se traera la informacion ``
-
