@@ -4,40 +4,33 @@ body {
     padding: 0;
 }
 
-.navbar-nav li a {                  /*color registrate y comenta*/
-    color: white;
-}                                 
-.navbar {                               /*ajustes al navbar*/
-    background-color: #142a3a;
+/*ajustes al navbar*/
+.navbar {                               
+    background-color: #21D54D;
+}
+.container-fluid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 .navbar-brand {
-    color: white;               /*Color del texto*/
+    width: 100%;
+}
+.navbar-brand .text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-}
-.navbar-brand img {
-    margin-right: 10px;
-}
-#btn-group {
-    background-color: #04AA6D;
+    margin: 0%;
 }
 
-/*Responsividad Footer
-@media (max-width: 767.9px) {
-    .textf {
-      display: none;
-    }
-    #footerimg {
-      margin-left: 15%;
-    }
-}*/
-
-/*CSS imagenes*/
+/*ajustes a los digimons*/
 .list_digimons {
     background-color: #04addc;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     gap: 2em;
-    padding: 1em;
+    padding: 2em;
     text-align: center;
 }
 .digimon_img{
@@ -127,20 +120,3 @@ body {
     font-size: 33px;
     transition: all 0.5s ease-out;
 }
-
-
-
-
-
-
-
-
-
-/*.btn:hover, .close:hover {           aumenta tamaño de botones
-    transform: scale(1.5);
-}*/
-/*Responsividad Formularios
-@media (max-width: 991.98px) {
-    .ocultoa, .ocultob {
-      display: none;
-}}*/
